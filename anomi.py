@@ -1,9 +1,5 @@
-import os
-import discord
-import threading
-import discord_components
+import discord_bots
 from discord.ext import commands
-import asyncio
 
 
 class AnonimousBot(commands.Cog):
