@@ -24,7 +24,6 @@ class AnonimousBot(commands.Cog):
 
             message_content = message.content
             msg = message_content.split("@")
-            print(msg)
             if len(msg) >= 1:
                 if len(msg) > 1:
                     name = msg[1].split("#")[0]
@@ -39,6 +38,7 @@ class AnonimousBot(commands.Cog):
                 user_id_to_mention = ""
                 for m in guild.members:
                     if str(m) == mention:
+                        print(name, code)
                         user_id_to_mention = f"<@{m.id}>"
                         break
                 
