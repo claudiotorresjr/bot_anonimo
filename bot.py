@@ -37,7 +37,9 @@ def main(test_env):
         prefix = "#"
         TOKEN = ""
     
-    my_bot = commands.Bot(command_prefix=prefix, help_command=None)
+    intents = discord.Intents.default()
+    intents.members = True
+    my_bot = commands.Bot(command_prefix=prefix, help_command=None, intents=intents)
 
     my_bot.add_cog(anomi.AnonimousBot(my_bot))
 
