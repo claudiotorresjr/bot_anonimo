@@ -7,6 +7,21 @@ class AnonimousBot(commands.Cog):
 
     """
 
+    all_commands = [
+        '-help',
+        '-p',
+        '-q',
+        '-skip',
+        '-skipto',
+        '-pause',
+        '-resume',
+        '-dc',
+        '-lyrics',
+        '-clear'
+        '-remove',
+        '-np',
+        '-gabi'
+    ]
 
     def __init__(self, bot):
         """
@@ -15,12 +30,14 @@ class AnonimousBot(commands.Cog):
 
         self.bot = bot
 
-
     
     @commands.Cog.listener()
     async def on_message(self, message):
         if isinstance(message.channel, discord.channel.DMChannel):
             channel_id = 259108205798359040
+            #eh comando. entao manda msg no canal de musica
+            if message.content.split(" ")[0] in self.all_commands:
+                channel_id = 704020614314459176
 
             message_content = message.content
             if "@" in message_content:
@@ -43,5 +60,5 @@ class AnonimousBot(commands.Cog):
                             break
                     
                     message_content = message_content.replace(f"@{mention}", user_id_to_mention)
-
+        
             await self.bot.get_channel(channel_id).send(message_content)
