@@ -36,6 +36,11 @@ class AnonimousBot(commands.Cog):
         if isinstance(message.channel, discord.channel.DMChannel):
             channel_id = 891466467059585115
             #channel_id = 891471706038890536 ##TESTE
+
+            if message.attachments and not message.content:
+                await self.bot.get_channel(channel_id).send(message.attachments[0])
+                return
+
             #eh comando. entao manda msg no canal de musica
             if message.content.split(" ")[0] in self.all_commands:
                 channel_id = 704020614314459176
@@ -61,7 +66,7 @@ class AnonimousBot(commands.Cog):
                             break
                     
                     message_content = message_content.replace(f"@{mention}", user_id_to_mention)
-        
+
             await self.bot.get_channel(channel_id).send(message_content)
             if message.attachments:
                 await self.bot.get_channel(channel_id).send(message.attachments[0])
