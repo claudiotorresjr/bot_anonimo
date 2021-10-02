@@ -34,7 +34,7 @@ class AnonimousBot(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
         if isinstance(message.channel, discord.channel.DMChannel):
-            channel_id = 891466467059585115
+            channel_id = 259108205798359040 #891466467059585115: canal anonimo
             #channel_id = 891471706038890536 ##TESTE
 
             if message.attachments and not message.content:
